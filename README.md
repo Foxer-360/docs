@@ -42,3 +42,16 @@ Title should be short and descriptive of what happened in this commit, and descr
 Added new job into CircleCI
 This job runs tests on five different versions of node.js and it's only triggered on the master branch.
 ```
+
+### Pull Request
+
+**Pull Requests (PR)** are used to merge your branches (such as `feature`, `release`, `bugfix` and `hotfix`) into `master` or `sandbox`. To merge branches in PR, we *always* use *Squash and Merge* type of merge. This type squash all commits into one commit, which will be added into the base (branch which you merge into). It creates clean history on `master` and `sandbox`. These commits have `title` equal to name of PR and `description` with all commits, which was in branch which you want to merge.
+
+For example you have branch `feature/one` and there are two commits `Added basic configuration` and `Finished feature one`. So you want to merge this feature into `sandbox`, so you create PR called for example `Added cool feature ONE` and of course, you can add some description, etc. Then if everything is OK, you select `Squash and Merge` in type of marge and click on it. This will show you form for `title` and `description` of this squash commit. `title` will be `Added cool feature ONE (#1)` and `description` will be
+```
+* Added basic configuration
+* Finished feature one
+```
+Between commits, there is no one empty line and also there are no descriptions of these commits, just titles.
+
+After you successfully merge this branch, then *remove it.*
