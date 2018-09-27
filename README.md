@@ -55,3 +55,21 @@ For example you have branch `feature/one` and there are two commits `Added basic
 Between commits, there is no one empty line and also there are no descriptions of these commits, just titles.
 
 After you successfully merge this branch, then *remove it.*
+
+
+**Release and Hotfix** PRs are a little bit more complicated. You need to create two PR for each `release` or `hotfix` branch, because of these branches needs to be merged into `master` and also `sandbox`. If you are creating PR for `release` branch, then create at first PR into `sandbox` and then into `master`. If you are creating PR for `hotfix` branch, then create at first PR into `master` and then into `sandbox`. The reason is simple, `release` is from `sandbox`, so merge into `sandbox` will be probably without problems, but merge into `master` can be problematic and can have some conflicts. The same reason is for `hotfix`, but `hotfix` is from `master`, so you need firstly resolve PR into `master` and then into `sandbox`.
+
+PRs for `release` branches will have name in format `Finished release v0.1.0 into sandbox` and `Finished release v0.1.0 into master`. Squash commit into `sandbox` will have same format as described above for `feature` branch for example. Squash commit into `master` will have little bit different format. `title` of this commit is the same, but description has one little change. There will be list of commits added into `sandbox` from the last release, then one empty line and then list of commits added into this `release` branch. It's just for better readability. So for example commit for `sandbox` will be
+```
+Finished release v0.1.0 into sandbox (#2)
+* Changed version numbers
+```
+and commit for `master` will be
+```
+Finished release v0.1.0 into master (#3)
+* Added cool feature ONE
+
+* Changed version numbers
+```
+
+PRs for `hotfix` branches will be very similar as for `release` branches. But format for `master` will be now for `sandbox` and vica verse. But PRs will have name in format `<hotfix description>, hotfix into <branch>` so for example `Fixed bad grammar, hotfix into sandbox`...
