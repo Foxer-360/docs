@@ -2,6 +2,7 @@
 
 Repository for all necessary documentation about the whole Foxer360 system.
 
+## [How to start the project](/example-project) 
 ## Git Workflow
 
 In this section, I will specify how we will use Git, so please use it this way. This git workflow has few types of branches which are described below.
